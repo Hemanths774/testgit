@@ -1,0 +1,14 @@
+	        driver.manage().window().maximize();
+		driver.get("https://testbed.devum.com/");
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//input[@id='mat-input-0']")).sendKeys("testuser");
+		driver.findElement(By.xpath("//input[@id='mat-input-1']")).sendKeys("Password123@");
+		driver.findElement(By.xpath("//span[@class='mdc-button__label']")).click();
+		
+		WebElement addnew = driver.findElement(By.xpath("//span[text()=' ADD NEW ']"));
+		WebDriverWait wait= new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.elementToBeClickable(addnew));
+		addnew.click();
+		driver.findElement(By.xpath("//mat-label[text()=' Name_Student ']")).sendKeys(" ",Keys.ENTER);
+		driver.findElement(By.xpath("//mat-label[text()=' Class ']")).sendKeys("", Keys.ENTER);
+		driver.findElement(By.xpath("//button[@id='hazmq']")).click();
